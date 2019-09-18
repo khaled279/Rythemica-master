@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.Rythemica.MainActivity">
+
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_above="@+id/RL"
+        android:layout_marginTop="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp"
+        tools:ignore="MissingConstraints" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/RL"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/layout_background"
+        >
+
+        <android.support.v7.widget.AppCompatImageButton
+            android:id="@+id/play"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/circle_play"
+            />
+        <android.support.v7.widget.AppCompatImageButton
+            android:id="@+id/next"
+            android:background="@drawable/circle_button"
+            android:scaleType="centerCrop"
+            android:src="@drawable/forward"
+            android:layout_toRightOf="@+id/play"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="60dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
+        <android.support.v7.widget.AppCompatImageButton
+            android:id="@+id/nexton"
+            android:background="@drawable/circle_button"
+            android:src="@drawable/previous"
+            android:scaleType="centerCrop"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_toLeftOf="@+id/play"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="60dp"
+
+            />
+    </RelativeLayout>
+</RelativeLayout>

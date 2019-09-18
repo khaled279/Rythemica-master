@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.Rythemica.InPlay">
+
+    <TextView
+        android:id="@+id/klam"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:text="Batetes Me7mra Bl Gbna Elromy"
+        android:textSize="20sp"
+        android:textColor="#000000"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="20dp"
+        android:layout_centerVertical="false"
+        android:layout_centerHorizontal="true"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        />  <ImageView
+    android:id="@+id/sora"
+    android:layout_width="300dp"
+    android:layout_height="300dp"
+    android:layout_centerHorizontal="true"
+    android:layout_below="@+id/klam"
+    android:background="@drawable/music123"
+    />
+    <android.support.v7.widget.AppCompatImageButton
+        android:id="@+id/previousone"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/sora"
+        android:background="@drawable/circle_button"
+        android:src="@drawable/previous"
+        android:scaleType="centerCrop"
+        android:layout_marginRight="80dp"
+        android:layout_toLeftOf="@+id/playon"
+        android:layout_marginTop="60dp"
+        />
+    <android.support.v7.widget.AppCompatImageButton
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/sora"
+        android:background="@drawable/circle_button"
+        android:src="@drawable/forward"
+        android:scaleType="centerCrop"
+        android:layout_marginLeft="80dp"
+        android:layout_toRightOf="@+id/playon"
+        android:layout_marginTop="60dp"
+        android:id="@+id/nexton"
+        />
+    <android.support.v7.widget.AppCompatImageButton
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/sora"
+        android:background="@drawable/circle_pause"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="50dp"
+        android:id="@+id/playon"
+        android:layout_centerHorizontal="true"
+        />
+    
+
+</RelativeLayout>

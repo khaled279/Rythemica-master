@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/songName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:text="Batates Mehamara"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:layout_marginRight="10dp"
+        />
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/art"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/imager"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            />
+    <TextView
+        android:id="@+id/artistName"
+        android:text="bkneh we rob3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/songName"
+        android:layout_marginLeft="120dp"
+        android:textSize="10dp"
+        />
+</RelativeLayout>
