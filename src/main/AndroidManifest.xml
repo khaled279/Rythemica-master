@@ -23,14 +23,16 @@
             android:enabled="true"
             />
 
-        <activity android:name="com.example.Rythemica.SplashScreen">
+        <activity android:name="com.example.Rythemica.MainActivity"
+            android:theme="@style/splashScreenTheme"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.Rythemica.MainActivity"></activity>
+
     </application>
 
 </manifest>

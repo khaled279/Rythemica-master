@@ -22,6 +22,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
@@ -36,7 +38,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity{
     ArrayList<Song> arrList;
     public  static  final String Broadcast_PLAY_NEW_AUDIO = "com.Rythemica.audioplayer.PlayNewAudio" ;
-    ListView list;
+    RecyclerView list;
     ImageButton btn1;
     ImageButton btn2;
     ImageButton btn3;
@@ -65,8 +67,8 @@ public class MainActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        setTheme(R.style.AppTheme);
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide(); //hide the title bar
         register_pausing();
@@ -128,6 +130,7 @@ public class MainActivity extends AppCompatActivity{
         btn3.setOnClickListener(onPreviousClicked);
         IntentFilter intentFilter = new IntentFilter(AudioManager.ACTION_AUDIO_BECOMING_NOISY);
         registerReceiver(becomingNoisyReceiver, intentFilter);
+        super.onCreate(savedInstanceState);
     }
 
     @Override
@@ -219,7 +222,8 @@ public class MainActivity extends AppCompatActivity{
         final Context context = getApplicationContext();
         songAdapter = new SongAdapter(arr, context);
         list.setAdapter(songAdapter);
-        list.setOnItemClickListener(songAdapter.clickListener);
+        list.setLayoutManager(new LinearLayoutManager(this));
+     //   list.setOnItemClickListener(songAdapter.clickListener);
        // songAdapter.ms.v = findViewById(R.id.play);
     }
 

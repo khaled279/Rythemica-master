@@ -4,6 +4,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.BroadcastReceiver;
+import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -12,6 +13,7 @@ import android.graphics.BitmapFactory;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.session.MediaSessionManager;
+import android.net.Uri;
 import android.os.Binder;
 import android.os.IBinder;
 import android.os.RemoteException;
@@ -23,10 +25,17 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import java.io.IOException;
+import java.lang.annotation.Target;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
+
 import android.support.v4.media.session.MediaSessionCompat ;
 import android.support.v4.media.MediaMetadataCompat ;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.FutureTarget;
 import com.example.myapplication.R;
 
 public class MediaPlayerServices extends Service implements MediaPlayer.OnCompletionListener
@@ -70,6 +79,7 @@ public class MediaPlayerServices extends Service implements MediaPlayer.OnComple
         transportControls = mediaSession.getController().getTransportControls();
         mediaSession.setActive(true);
         mediaSession.setFlags(MediaSessionCompat.FLAG_HANDLES_TRANSPORT_CONTROLS);
+        mediaSession.setFlags(MediaSessionCompat.FLAG_HANDLES_MEDIA_BUTTONS);
         updateMetaData();
         mediaSession.setCallback(new MediaSessionCompat.Callback() {
             @Override
@@ -96,6 +106,7 @@ public class MediaPlayerServices extends Service implements MediaPlayer.OnComple
             public void onSkipToNext() {
                 super.onSkipToNext();
                 skipToNext() ;
+                sendBroadcast(new Intent(changeToPlay));
                 updateMetaData();
                 buildNotification(PlaybackStatus.PLAYING);
             }
@@ -104,6 +115,7 @@ public class MediaPlayerServices extends Service implements MediaPlayer.OnComple
             public void onSkipToPrevious() {
                 super.onSkipToPrevious();
                 skipToPrevious();
+                sendBroadcast(new Intent(changeToPlay));
                 updateMetaData();
                 buildNotification(PlaybackStatus.PLAYING);
             }
@@ -145,7 +157,7 @@ public class MediaPlayerServices extends Service implements MediaPlayer.OnComple
     registerReceiver(skipToPrevious , intentFilter);
 }
     private void updateMetaData(){
-        Bitmap albumArt = BitmapFactory.decodeResource(getResources(), R.drawable.music123);
+        Bitmap albumArt = BitmapFactory.decodeResource(getResources() , R.drawable.music123);
         try {
             initMediaSession();
         } catch (RemoteException e) {

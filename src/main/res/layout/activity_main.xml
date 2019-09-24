@@ -7,15 +7,17 @@
     tools:context="com.example.Rythemica.MainActivity">
 
 
-    <ListView
+    <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/listView"
         android:layout_above="@+id/RL"
         android:layout_marginTop="0dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
